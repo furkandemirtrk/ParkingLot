@@ -10,3 +10,5 @@
     - H2 - JPA
     - Restful
     - Swagger
+    - Maven
+    - Lombok
