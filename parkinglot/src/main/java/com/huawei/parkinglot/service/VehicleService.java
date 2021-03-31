@@ -11,6 +11,7 @@ import com.huawei.parkinglot.model.VehicleDto;
 public interface VehicleService {
 
 	/**
+	 * Check Out Process
 	 *
 	 * @param vehicleDto
 	 * @throws ParkingLotException

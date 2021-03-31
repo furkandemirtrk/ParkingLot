@@ -67,7 +67,7 @@ public class ParkServiceImpl implements ParkService{
     long hourDiff = tempLocalDateTime.until(park.getEndDate(), ChronoUnit.HOURS);
     double fee = 0;
     park.getParkingArea().getPriceList().sort(Comparator.comparingInt(Price::getEndHour).reversed());
-    while (hourDiff > 0){
+    while (hourDiff >= 0){
       for(Price price : park.getParkingArea().getPriceList()){
         if ((hourDiff >= 24 && price.getEndHour() == 24) || (hourDiff < price.getEndHour() && hourDiff >= price.getStartHour())){
           fee += price.getFee();
@@ -87,12 +87,12 @@ public class ParkServiceImpl implements ParkService{
       log.error("vehicle cannot be null");
       throw new ParkingLotException(ErrorCodeEnum.FIELD_VALIDATION_ERROR);
     }
-    Park park = parkRepository.findFirstByVehicleAndAndEndDateIsNullOrderByStartDate(vehicle);
+    Park park = parkRepository.findFirstByVehicleAndEndDateIsNullOrderByStartDate(vehicle);
     if (park == null){
       log.error("park cannot be null");
       throw new ParkingLotException(ErrorCodeEnum.FIELD_VALIDATION_ERROR);
     }
-    park.setEndDate(LocalDateTime.now().plusHours(10));
+    park.setEndDate(LocalDateTime.now());
     park.setFee(calculateFee(park));
     return park;
   }

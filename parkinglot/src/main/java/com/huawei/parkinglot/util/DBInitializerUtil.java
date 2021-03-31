@@ -86,7 +86,7 @@ public class DBInitializerUtil{
 
     Park park = Park.builder().vehicle(sedan).startDate(LocalDateTime.now()).parkingArea(parkingAreaRepository.findById(1L).orElse(null)).build();
     Park park2 = Park.builder().vehicle(suv).startDate(LocalDateTime.now()).parkingArea(parkingAreaRepository.findById(1L).orElse(null)).build();
-    Park park3 = Park.builder().vehicle(minivan).startDate(LocalDateTime.now()).parkingArea(parkingAreaRepository.findById(1L).orElse(null)).build();
+    Park park3 = Park.builder().vehicle(minivan).startDate(LocalDateTime.now()).endDate(LocalDateTime.now().plusHours(5)).fee(15D).parkingArea(parkingAreaRepository.findById(2L).orElse(null)).build();
 
     parkRepository.saveAll(Arrays.asList(park,park2,park3));
   }

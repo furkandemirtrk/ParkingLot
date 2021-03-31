@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface ParkService{
   /**
+   * Check In Process
    *
    * @param checkInRequest
    * @return
@@ -25,10 +26,11 @@ public interface ParkService{
   Double calculateFee(Park park);
 
   /**
+   * Parking Process
    *
    * @param vehicleDto
    * @return
    * @throws ParkingLotException
    */
-  public Park parkingProcess(VehicleDto vehicleDto) throws ParkingLotException;
+  Park parkingProcess(VehicleDto vehicleDto) throws ParkingLotException;
 }

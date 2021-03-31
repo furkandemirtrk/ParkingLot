@@ -16,7 +16,6 @@ import javax.persistence.Table;
 @Setter
 @AllArgsConstructor
 @DiscriminatorValue(value = VehicleType.Values.SUV)
-//TODO define inheritance
 public class SUV extends Vehicle {
 
 

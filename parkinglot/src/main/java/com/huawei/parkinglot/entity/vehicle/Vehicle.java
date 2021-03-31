@@ -14,7 +14,6 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @RequiredArgsConstructor
-//TODO define inheritance
 public class Vehicle {
 
 	@Id
@@ -26,5 +25,4 @@ public class Vehicle {
 		return fee * (fee * MULTIPLIER);
 	}
 
-	//TODO getters setters
 }

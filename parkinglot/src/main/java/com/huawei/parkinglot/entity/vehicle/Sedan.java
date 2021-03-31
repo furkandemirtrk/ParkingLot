@@ -13,7 +13,6 @@ import javax.persistence.Table;
 @Setter
 @AllArgsConstructor
 @DiscriminatorValue(value = VehicleType.Values.SEDAN)
-//TODO define inheritance
 public class Sedan extends Vehicle{
 
   public Sedan(String licensePlate){

@@ -31,12 +31,18 @@ public interface ParkingAreaService{
   Boolean delete(Long id) throws ParkingLotException;
 
   /**
-   *
+   * Parking Area Find By Name
    * @param parkingAreaFindByNameRequest
    * @return
    * @throws ParkingLotException
    */
   ParkingAreaDto findByName(ParkingAreaFindByNameRequest parkingAreaFindByNameRequest) throws ParkingLotException;
 
+  /**
+   * Daily Income Of The Parking Lot
+   * @param dailyIncomeOfTheParkingLotRequest
+   * @return
+   * @throws ParkingLotException
+   */
   Double dailyIncomeOfTheParkingLot(DailyIncomeOfTheParkingLotRequest dailyIncomeOfTheParkingLotRequest) throws ParkingLotException;
 }

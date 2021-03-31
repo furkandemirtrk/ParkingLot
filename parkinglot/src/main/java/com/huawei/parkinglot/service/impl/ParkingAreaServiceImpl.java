@@ -1,6 +1,7 @@
 package com.huawei.parkinglot.service.impl;
 
 import com.huawei.parkinglot.entity.City;
+import com.huawei.parkinglot.entity.Park;
 import com.huawei.parkinglot.entity.ParkingArea;
 import com.huawei.parkinglot.entity.Price;
 import com.huawei.parkinglot.exception.ParkingLotException;
@@ -18,6 +19,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.List;
 
 
 @Service
@@ -84,6 +86,10 @@ public class ParkingAreaServiceImpl implements ParkingAreaService{
       log.error("There is  car in the parking area");
       throw new ParkingLotException(ErrorCodeEnum.THERE_IS_VEHICLE_IN_THE_PARKING_LOT);
     }
+    List<Park> parkList = parkRepository.findAllByParkingArea(parkingArea);
+    if (!parkList.isEmpty()){
+      parkRepository.deleteAll(parkList);
+    }
     parkingAreaRepository.deleteById(id);
     return true;
   }
@@ -97,6 +103,10 @@ public class ParkingAreaServiceImpl implements ParkingAreaService{
   @Override
   public Double dailyIncomeOfTheParkingLot(DailyIncomeOfTheParkingLotRequest dailyIncomeOfTheParkingLotRequest) throws ParkingLotException{
     log.info("dailyIncomeOfTheParkingLot start {} {},", dailyIncomeOfTheParkingLotRequest.getDate(), dailyIncomeOfTheParkingLotRequest.getParkingAreaId());
+    ParkingArea parkingArea = parkingAreaRepository.findById(dailyIncomeOfTheParkingLotRequest.getParkingAreaId()).orElse(null);
+    if (parkingArea == null){
+      throw new ParkingLotException(ErrorCodeEnum.FIELD_VALIDATION_ERROR);
+    }
     return parkingAreaRepository.dailyIncomeOfTheParkingLot(dailyIncomeOfTheParkingLotRequest.getDate(), dailyIncomeOfTheParkingLotRequest.getParkingAreaId());
   }
 

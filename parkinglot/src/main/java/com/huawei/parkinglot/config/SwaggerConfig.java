@@ -17,8 +17,6 @@ import java.time.LocalDate;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-	
-	//TODO spring bean definition
 
 
   @Bean

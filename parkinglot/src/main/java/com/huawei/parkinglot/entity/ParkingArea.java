@@ -13,9 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-//TODO entity definition
 public class ParkingArea {
-	//TODO define attributes
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
