@@ -95,7 +95,7 @@ public class ParkingAreaServiceImpl implements ParkingAreaService{
   }
 
   @Override
-  public ParkingAreaDto findByName(ParkingAreaFindByNameRequest parkingAreaFindByNameRequest) throws ParkingLotException{
+  public ParkingAreaDto findByName(ParkingAreaFindByNameRequest parkingAreaFindByNameRequest) {
     log.info("findByName start");
     return modelMapper.map(parkingAreaRepository.findByName(parkingAreaFindByNameRequest.getName()), ParkingAreaDto.class);
   }

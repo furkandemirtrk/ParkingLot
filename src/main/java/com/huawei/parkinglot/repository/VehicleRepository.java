@@ -10,7 +10,7 @@ public interface VehicleRepository extends JpaRepository<Vehicle,String>{
   /**
    *
    * @param licensePlate
-   * @return
+   * @return Vehicle
    */
   Vehicle findByLicensePlate(String licensePlate);
 }
