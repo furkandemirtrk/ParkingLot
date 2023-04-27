@@ -1,5 +1,5 @@
 # Base image
-FROM adoptopenjdk/openjdk11:x86_64-alpine-jdk-11.0.11_9-slim
+FROM openjdk:11-jdk-slim
 
 
 # Set working directory
